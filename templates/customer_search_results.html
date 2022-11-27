@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Search{% endblock %}
+{% block content %}
+
+{% if customers|length > 0%}
+
+<h1>Customers matching {{ name }}</h1>
+
+<ul style="column-count: 4">
+  {% for customer in customers %}
+  <li><a href="/{{ customer.id }}/">{{ customer.fullName }}</a></li>
+  {% endfor %}
+</ul>
+
+{% else %}
+
+<h1>No matches found for "{{ name }}"</h1>
+
+{% endif %}
+
+{% endblock %}
